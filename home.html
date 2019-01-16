@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>home</title>
+        <link rel="stylesheet" type="text/css" href="home.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    </head>
+
+    <body>
+        <div class="top">
+            <div class="word">圖書館發呆區使用狀況監測</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">首頁</a></li>
+                <li><a href="analysis.html">資料分析</a></li>
+            </ul>
+        </nav>
+
+        <div class="main">
+            <div class="chair"><img src="photo/chair1.png" height="200" width="200" id="chair1"></div>
+            <div class="chair"><img src="photo/chair1.png" height="200" width="200" id="chair2"></div>
+            <div class="chair"><img src="photo/chair1.png" height="200" width="200" id="chair3"></div>
+        </div>
+
+        <div class="time"><div>選擇時間</div></div>
+        <div class="theList">
+            <input id="thedata" type="text" name="date" value="01/01/2019" disabled="disabled" onchange="changeFunc();" />
+        </div>
+        
+        <div class="chart">
+            <canvas id="myChart"></canvas>
+        </div>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script> 
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script src="analysis.js"></script>
+        <script src="home.js"></script>
+        <script src="home_chairuse.js"></script>
+
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+        <script>
+            $(function() {
+              $('input[name="date"]').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                yearRange : "1980:2030"
+              }, function(start, end, label) {
+                var years = moment().diff(start, 'years');
+              });
+            });
+        </script>
+    </body>
+
+</html>

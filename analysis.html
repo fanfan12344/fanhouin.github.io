@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>analysis</title>
+    <link rel="stylesheet" type="text/css" href="home.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+</head>
+
+<body>
+    <div class="top">
+        <div class="word">智慧校園應用專題</div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="home.html">首頁</a></li>
+            <li><a href="analysis.html">資料分析</a></li>
+        </ul>
+    </nav>
+
+    <div class="theList">
+        <select id = "chairlist" onchange="changeFunc();">
+            <option value=chair1>chair1
+            <option value=chair2>chair2
+            <option value=chair3>chair3
+        </select>
+
+        <input id="thedata" type="text" name="date" value="01/01/2019" onchange="changeFunc();" />
+    </div>
+
+
+    <div class="main">
+        <canvas id="myChart"></canvas>
+    </div>
+
+
+
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <script src="analysis.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script>
+        $(function() {
+          $('input[name="date"]').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            yearRange : "1980:2030"
+          }, function(start, end, label) {
+            var years = moment().diff(start, 'years');
+          });
+        });
+    </script>
+
+</body>
+
+</html>
